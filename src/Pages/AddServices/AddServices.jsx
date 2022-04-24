@@ -5,14 +5,30 @@ const AddServices = () => {
   const { register, handleSubmit } = useForm();
   const onSubmit = (data) => console.log(data);
   return (
-    <>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <input {...register("firstName", { required: true, maxLength: 20 })} />
-        <input {...register("lastName", { pattern: /^[A-Za-z]+$/i })} />
-        <input type="number" {...register("age", { min: 18, max: 99 })} />
+    <div className="w-50 mx-auto">
+      <h2>PLease Add a Service</h2>
+      <form className="d-flex flex-column" onSubmit={handleSubmit(onSubmit)}>
+        <input
+          placeholder="Name"
+          className="mb-2"
+          {...register("name", { required: true, maxLength: 20 })}
+        />
+        <input placeholder="Price" className="mb-2" type="number" {...register("price")} />
+        
+        <input
+          placeholder="PhotoURL"
+          className="mb-2"
+          {...register("img")}
+        />
+        <textarea
+          placeholder="Description"
+          className="mb-2"
+          {...register("description")}
+        />
+
         <input type="submit" />
       </form>
-    </>
+    </div>
   );
 };
 
