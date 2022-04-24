@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 
@@ -9,13 +10,14 @@ const ServiceDetail = () => {
     fetch(url)
       .then((res) => res.json())
       .then((data) => setService(data));
-    console.log(service);
   }, []);
 
   return (
     <>
       <div className="text-center">
-        {service.map((item => console.log(item)))}
+
+        {service.map((item => console.log('item', item)))}
+
         <Link to="/checkout">
           <button className="btn btn-primary">Proceed Checkout</button>
         </Link>
